@@ -1,0 +1,35 @@
+package main
+
+import (
+	"fmt"
+)
+
+func CalculateDigitalRoot(n int) int {
+	var sum int
+	var ost int
+	ost = n
+	for ost > 0 {
+		if ost%10 > 0 {
+			sum += ost % 10
+		}
+		ost = ost / 10
+	}
+	if sum <= 9 {
+		return sum
+	} else {
+		ost = n
+		for ost > 0 {
+			if sum > 9 {
+				sum -= ost % 10
+				ost = ost / 10
+			} else {
+				return sum
+			}
+		}
+		return sum
+	}
+
+}
+func main() {
+	fmt.Println(CalculateDigitalRoot(0))
+}

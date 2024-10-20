@@ -1,0 +1,16 @@
+package main
+
+import "fmt"
+
+func SumOfArray(array [6]int) int {
+	var sum int
+	for g := 0; g < len(array); g++ {
+		sum += array[g]
+	}
+	return sum
+}
+
+func main() {
+	input := [6]int{6, 5, 7, 8, 9, 1}
+	fmt.Print(input, SumOfArray(input))
+}

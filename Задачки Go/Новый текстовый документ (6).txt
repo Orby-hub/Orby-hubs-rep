@@ -1,0 +1,29 @@
+package main
+
+import "fmt"
+
+func FindMaxKey(m map[int]int) int {
+	max := 0
+	i := 1
+	for key := range m { // Порядок не определен
+		if i == 1 {
+			max = key
+		}
+		if key > max {
+			max = key
+		}
+		i++
+		//fmt.Println(max)
+	}
+	return max
+}
+
+func main() {
+	//var m map[int]int
+	m := map[int]int{
+		-6: 34,
+		-2: 7,
+	}
+	fmt.Println(FindMaxKey(m))
+
+}

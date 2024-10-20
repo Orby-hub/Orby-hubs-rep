@@ -1,0 +1,17 @@
+package main
+
+import (
+	"fmt"
+)
+
+func SliceCopy(nums []int) []int {
+	g := len(nums)
+	n2 := make([]int, g)
+	copy(n2, nums)
+	fmt.Println(n2, nums)
+	return n2
+}
+func main() {
+	nn := []int{5, 5}
+	fmt.Println(SliceCopy(nn))
+}

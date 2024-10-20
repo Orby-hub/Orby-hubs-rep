@@ -1,0 +1,19 @@
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+
+func IntToBinary(num int) (string, error) {
+	if num < 0 {
+		return "", fmt.Errorf("negative numbers are not allowed")
+	}
+	x := int64(num)
+	x_hex := strconv.FormatInt(x, 2)
+	return x_hex, nil
+}
+
+func main() {
+	fmt.Println(IntToBinary(-5))
+}

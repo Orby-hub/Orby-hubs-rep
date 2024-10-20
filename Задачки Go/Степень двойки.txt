@@ -1,0 +1,29 @@
+package main
+
+import (
+	"fmt"
+)
+
+func IsPowerOfTwoRecursive(n int) {
+	var teatr bool
+	for n > 1 {
+		if n%2 > 0 { //Остаток от деления
+			teatr = true
+			n = 0
+		} else {
+			n = n / 2
+		}
+
+	}
+	if teatr {
+		fmt.Print("NO")
+	} else {
+		fmt.Print("YES")
+	}
+}
+
+func main() {
+	var n int
+	fmt.Scanln(&n)
+	IsPowerOfTwoRecursive(n)
+}

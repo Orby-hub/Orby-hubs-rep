@@ -1,0 +1,27 @@
+package main
+
+import "fmt"
+
+func FindMinMaxInArray(array [10]int) (int, int) {
+	max := array[0]
+	min := array[0]
+	for _, element := range array {
+		if element > max {
+			max = element
+		}
+		for _, element := range array {
+			if element < min {
+				min = element
+			}
+		}
+
+	}
+	return max, min
+}
+
+func main() {
+	input := [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	max, min := FindMinMaxInArray(input)
+
+	fmt.Print(max, min)
+}

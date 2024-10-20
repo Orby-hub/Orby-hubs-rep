@@ -1,0 +1,14 @@
+package main
+
+import "fmt"
+
+func main() {
+	var vvod int
+	var fac int
+	fmt.Scanln(&vvod)
+	fac = 1
+	for razi := 1; razi <= vvod; razi++ {
+		fac *= razi
+	}
+	fmt.Println(fac)
+}

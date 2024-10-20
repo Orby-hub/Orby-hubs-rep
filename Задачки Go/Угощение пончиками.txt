@@ -1,0 +1,17 @@
+package main
+
+import "fmt"
+
+func main() {
+	var vvod int
+	var sum int
+	fmt.Scanln(&vvod)
+	for B := 0; B <= vvod; B++ {
+		if B%3 == 0 || B%5 == 0 {
+		} else {
+			sum += B
+		}
+	}
+	fmt.Println(sum)
+
+}

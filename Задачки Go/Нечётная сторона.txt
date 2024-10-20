@@ -1,0 +1,21 @@
+package main
+
+import "fmt"
+
+func main() {
+	var vvod int
+	var sum int
+	fmt.Scanln(&vvod)
+	if vvod < 0 {
+		fmt.Println("Некорректный ввод")
+	} else {
+		for B := 1; B <= vvod; B++ {
+			if B%2 == 0 {
+			} else {
+				sum += B
+			}
+		}
+		fmt.Println(sum)
+	}
+
+}

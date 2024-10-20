@@ -1,0 +1,25 @@
+package main
+
+import (
+	"fmt"
+)
+
+func SumDigitsRecursive(n int) int {
+	var sum int
+	var ost int
+	ost = n
+	for ost > 0 {
+		if ost%10 > 0 {
+			sum += ost % 10
+		}
+		ost = ost / 10
+	}
+	fmt.Print(sum)
+	return sum
+}
+
+func main() {
+	var n int
+	fmt.Scanln(&n)
+	SumDigitsRecursive(n)
+}

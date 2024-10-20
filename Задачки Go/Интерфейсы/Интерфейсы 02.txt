@@ -1,0 +1,34 @@
+"Заведи кота или собаку, будет весело!" — говорили друзья. А Гоша ответил, что надо подумать, и пошёл писать интерфейс.
+
+Создайте интерфейс Animal с методом MakeSound, который будет выводить звук, издаваемый животным. Создайте структуры Dog и Cat, которые будут реализовывать этот интерфейс и издавать соответствующие звуки (выводить на экран) – "Гав!" и "Мяу!".
+
+package main
+
+import (
+	"fmt"
+)
+
+type Animal interface {
+	MakeSound()
+}
+
+type Dog struct {
+}
+
+type Cat struct {
+}
+
+func (p Dog) MakeSound() {
+	fmt.Println("Гав!")
+}
+
+func (s Cat) MakeSound() {
+	fmt.Println("Мяу!")
+}
+func main() {
+	cat1 := Cat{}
+	cat1.MakeSound()
+	dog1 := Dog{}
+	dog1.MakeSound()
+
+}

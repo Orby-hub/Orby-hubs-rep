@@ -1,0 +1,43 @@
+Гоша решил сделать небольшой ремонт — выложить на полу мозаику из геометрических фигур. Для этого нужно сперва рассчитать их площади. Кстати, не создать ли для этого специальный интерфейс?
+
+Создайте интерфейс Shape с методом Area, который будет возвращать площадь фигуры. Создайте структуры Circle и Rectangle, которые будут реализовывать этот интерфейс и рассчитывать площадь этих фигур.
+
+Примечания
+Вам может пригодиться пакет math.
+
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+type Shape interface {
+	Area() float64
+}
+
+type Circle struct {
+	radius float64
+}
+
+type Rectangle struct {
+	width  float64
+	height float64
+}
+
+func (p Circle) Area() float64 {
+	area1 := p.radius * p.radius * math.Pi
+	return area1
+}
+
+func (s Rectangle) Area() float64 {
+	area2 := s.width * s.height
+	return area2
+}
+func main() {
+	var pram Shape = Rectangle{width: 57.2, height: 10.2}
+	var krug Shape = Circle{radius: 1}
+	fmt.Println(pram.Area())
+	fmt.Println(krug.Area())
+
+}

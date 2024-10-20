@@ -1,0 +1,22 @@
+Напишите функцию SumTwoIntegers(a, b string) (int, error), которая получает две строки и, если это целые числа, возвращает их сумму. Если пользователь ввёл данные не целого типа, функция должна вернуть сообщение об ошибке (invalid input, please provide two integers).
+
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+
+func SumTwoIntegers(a, b string) (int, error) {
+	num1, err1 := strconv.Atoi(a)
+	num2, err2 := strconv.Atoi(b)
+	if err1 != nil || err2 != nil {
+		return 0, fmt.Errorf("invalid input, please provide two integers")
+	}
+	sum := num1 + num2
+	return sum, nil
+}
+
+func main() {
+	fmt.Println(SumTwoIntegers("5", "386.7"))
+}

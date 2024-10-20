@@ -1,0 +1,23 @@
+package main
+
+import (
+	"fmt"
+)
+
+func CalculateSeriesSum(n int) float64 {
+	var sum float64
+	var polet float64
+	for b := 1; b <= n; b++ {
+		polet += 1
+		sum += (1 / polet)
+	}
+	return sum
+
+}
+
+func main() {
+	var n int
+	fmt.Scanln(&n)
+	CalculateSeriesSum(n)
+	fmt.Print(CalculateSeriesSum(n))
+}
