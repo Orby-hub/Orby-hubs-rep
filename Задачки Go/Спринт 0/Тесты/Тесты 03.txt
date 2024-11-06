@@ -1,0 +1,34 @@
+package main
+
+import (
+	"testing"
+)
+
+func Multiply(a, b int) int {
+	return a * b
+}
+
+type Test struct {
+	a   int
+	b   int
+	res int
+}
+
+var tests = []Test{
+	{-1, 5, -5},
+	{2, 5, 10},
+	{0, 4, 0},
+}
+
+func TestMultiply(t *testing.T) {
+	for _, y := range tests {
+		result := Multiply(y.a, y.b)
+		if result != y.res {
+			t.Errorf("Multiply(%d, %d) = %d ожидалось %d", y.a, y.b, result, y.res)
+		}
+	}
+}
+
+func main() {
+
+}

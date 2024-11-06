@@ -1,0 +1,1 @@
+fmt.Printf("%.2f \n", TotalSalary)

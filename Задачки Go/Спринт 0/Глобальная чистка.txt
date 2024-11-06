@@ -1,0 +1,35 @@
+package main
+
+import (
+	"fmt"
+	"unicode"
+)
+
+func DeleteLongKeys(m map[string]int) map[string]int {
+	voda := make(map[string]int)
+	for key, value := range m {
+		for _, r := range key {
+			if unicode.Is(unicode.Cyrillic, r) {
+				if len(key) >= len("Прохор") {
+					voda[key] = value
+				}
+			} else {
+				if len(key) >= len("aaaaaa") {
+					voda[key] = value
+				}
+			}
+		}
+	}
+	return voda
+}
+
+func main() {
+	u := map[string]int{
+		"Объедалов": 6785,
+		"Чпок":      7364,
+		"aaaaaaa":   8686,
+	}
+
+	fmt.Println(DeleteLongKeys(u))
+
+}

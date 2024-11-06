@@ -1,0 +1,30 @@
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+func Permutations(input string) []string {
+	var result []string
+	inp := []rune(input)
+	var perm func(int)
+	perm = func(n int) {
+		if n == len(inp)-1 {
+			result = append(result, string(inp))
+		} else {
+			for i := n; i < len(inp); i++ {
+				inp[n], inp[i] = inp[i], inp[n]
+				perm(n + 1)
+				inp[n], inp[i] = inp[i], inp[n]
+			}
+		}
+	}
+	perm(0)
+	sort.Strings(result)
+	return result
+}
+
+func main() {
+	fmt.Println(Permutations("абв"))
+}

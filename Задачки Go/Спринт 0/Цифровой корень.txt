@@ -1,10 +1,8 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-func CalculateDigitalRoot(n int) int {
+func Sum(n int) int {
 	var sum int
 	var ost int
 	ost = n
@@ -14,6 +12,15 @@ func CalculateDigitalRoot(n int) int {
 		}
 		ost = ost / 10
 	}
+	return sum
+}
+
+func CalculateDigitalRoot(n int) int {
+	var sum int
+	var ost int
+
+	ost = Sum(n)
+	sum = Sum(ost)
 	if sum <= 9 {
 		return sum
 	} else {
@@ -30,6 +37,7 @@ func CalculateDigitalRoot(n int) int {
 	}
 
 }
+
 func main() {
-	fmt.Println(CalculateDigitalRoot(0))
+	fmt.Println(CalculateDigitalRoot(98))
 }

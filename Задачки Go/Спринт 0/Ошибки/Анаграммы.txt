@@ -1,0 +1,31 @@
+package main
+
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
+
+func AreAnagrams(str1, str2 string) bool {
+	str1 = strings.ToLower(str1)
+	str2 = strings.ToLower(str2)
+
+	od := strings.Split(str1, "")
+	dv := strings.Split(str2, "")
+
+	sort.Strings(od)
+	sort.Strings(dv)
+
+	for i := 0; i < len(od); i++ {
+		if od[i] == dv[i] {
+
+		} else {
+			return false
+		}
+	}
+	return true
+}
+
+func main() {
+	fmt.Println(AreAnagrams("абв", "бав"))
+}

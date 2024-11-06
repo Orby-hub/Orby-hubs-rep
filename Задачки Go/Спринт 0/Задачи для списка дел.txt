@@ -1,0 +1,33 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+type Task struct {
+	summary     string
+	description string
+	deadline    time.Time
+	priority    int
+}
+
+func (s Task) IsOverdue() bool {
+	h := time.Now()
+	g := h.After(s.deadline)
+	return g
+}
+
+func (s Task) IsTopPriority() bool {
+	if s.priority == 4 || s.priority == 5 {
+		return true
+	}
+	return false
+}
+
+func main() {
+	task := Task{summary: "Make Yandex Lyceum", deadline: time.Now().Add(time.Hour), description: "Make Module 0, Task 10", priority: 4}
+	fmt.Println(task.IsOverdue())
+	fmt.Print(task.IsTopPriority())
+
+}

@@ -1,0 +1,23 @@
+package main
+
+import (
+	"fmt"
+)
+
+type Person struct {
+	name    string
+	age     int
+	address string
+}
+
+func (s Person) Print() {
+
+	fmt.Println("Name:", s.name)
+	fmt.Println("Age:", s.age)
+	fmt.Println("Address:", s.address)
+}
+
+func main() {
+	man := Person{name: "Anton", age: 31, address: "Krasnogorsk"}
+	man.Print()
+}

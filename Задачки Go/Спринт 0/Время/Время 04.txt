@@ -1,0 +1,33 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func TimeAgo(pastTime time.Time) string {
+	result := time.Since(pastTime)
+	hours := int(result.Hours())
+	days := hours / 24
+	month := int(result.Hours() / (24 * 30))
+
+	switch {
+	case month > 0:
+		if month == 1 {
+			return "1 month ago"
+		}
+		return fmt.Sprintf("%d month ago", month)
+	case days > 0:
+		if days == 1 {
+			return "1 day ago"
+		}
+		return fmt.Sprintf("%d days ago", days)
+	case hours > 0:
+		if hours == 1 {
+			return "1 hour ago"
+		}
+		return fmt.Sprintf("%d hours ago", hours)
+	default:
+		return "just now"
+	}
+}

@@ -1,0 +1,12 @@
+package main
+
+import "fmt"
+
+func CountingSort(contacts []string) map[string]int {
+	hot := make(map[string]int)
+	for _, contact := range contacts {
+		hot[contact]++
+	}
+
+	return hot
+}

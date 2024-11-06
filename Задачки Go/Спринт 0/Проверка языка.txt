@@ -1,0 +1,8 @@
+func IsRusByUnicode(str string) bool {
+    for _, r := range str {
+        if unicode.Is(unicode.Cyrillic, r) {
+            return true
+        }
+    }
+    return false
+}

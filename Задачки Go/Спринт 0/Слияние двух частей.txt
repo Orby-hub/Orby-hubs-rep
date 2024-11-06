@@ -1,0 +1,27 @@
+package main
+
+import (
+	"fmt"
+	"slices"
+)
+
+func Mix(nums []int) []int {
+	n := len(nums) / 2
+	ger := make([]int, len(nums))
+	u := 0
+	for i := 0; i < n; i++ {
+		ger = slices.Insert(ger, u, nums[i])
+		ger = slices.Insert(ger, u+1, nums[i+n])
+		//fmt.Println(ger)
+		u += 2
+	}
+	n3 := make([]int, len(nums))
+	copy(n3, ger)
+	return n3
+
+}
+
+func main() {
+	nn := []int{1, 2, 3, 11, 12, 13}
+	fmt.Println(Mix(nn))
+}

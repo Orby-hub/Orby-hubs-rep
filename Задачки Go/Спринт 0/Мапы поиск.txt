@@ -1,0 +1,3 @@
+for key, value := range m { // Порядок не определен 
+    fmt.Println(key, value)
+}

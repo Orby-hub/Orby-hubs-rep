@@ -1,0 +1,56 @@
+package main
+
+import (
+	"unicode"
+)
+
+func DeleteVowels(s string) string {
+	var result string
+	for i := 0; i < len(s); i++ {
+		switch unicode.ToLower(rune(s[i])) {
+		case 'a':
+			continue
+		case 'e':
+			continue
+		case 'i':
+			continue
+		case 'o':
+			continue
+		case 'u':
+			continue
+		}
+		result += string(s[i])
+	}
+	return result
+}
+
+package main
+
+import "testing"
+
+type Test struct {
+	a      string
+	result string
+}
+
+var tests = []Test{
+	{"fffGyhd", "fffGyhd"},
+	{"aaaaaa", ""},
+	{"aasaa", "s"},
+	{"b", "b"},
+	{"", ""},
+	{"aeiou", ""},
+}
+
+func TestDeleteVowels(t *testing.T) {
+	for i, y := range tests {
+		result := DeleteVowels(y.a)
+		if result != y.result {
+			t.Errorf("#%d: DeleteVowels(%s) = %s ожидалось %s", i, y.a, result, y.result)
+		}
+	}
+}
+
+func main() {
+
+}

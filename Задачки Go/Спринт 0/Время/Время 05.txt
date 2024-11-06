@@ -1,0 +1,22 @@
+Напишите функцию NextWorkday(start time.Time) time.Time, которая вычисляет дату следующего рабочего дня (исключая выходные). Учитывая дату начала, функция должна возвращать дату следующего рабочего дня.
+
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func NextWorkday(start time.Time) time.Time {
+	for {
+		start = start.AddDate(0, 0, 1)
+		if start.Weekday() != time.Saturday && start.Weekday() != time.Sunday {
+			break
+		}
+	}
+	return start
+}
+func main() {
+	timestamp := time.Date(2023, 10, 23, 2, 41, 49, 0, time.UTC)
+	fmt.Println(NextWorkday(timestamp))
+}

@@ -1,0 +1,32 @@
+package main
+
+import (
+	"testing"
+)
+
+func Sum(a, b int) int {
+	return a + b
+}
+
+func TestSum(t *testing.T) {
+	testi := []struct {
+		a, b, povidal int
+	}{
+		{2, -2, 0},
+		{0, 0, 0},
+		{5, 5, 10},
+		{5, -2, 3},
+	}
+
+	for _, y := range testi {
+		result := Sum(y.a, y.b)
+
+		if result != y.povidal {
+			t.Errorf("Sum(%d, %d) = %d, ожидалось %d", y.a, y.b, result, y.povidal)
+		}
+	}
+}
+
+func main() {
+
+}

@@ -1,0 +1,74 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+type Task struct {
+	summary     string
+	description string
+	deadline    time.Time
+	priority    int
+}
+
+type Note struct {
+	title string
+	text  string
+}
+
+type ToDoList struct {
+	name  string
+	tasks []Task
+	notes []Note
+}
+
+func (s ToDoList) TasksCount() int {
+	return len(s.tasks)
+}
+
+func (s ToDoList) NotesCount() int {
+	return len(s.notes)
+}
+
+func (s Task) IsOverdue() bool {
+	h := time.Now()
+	g := h.After(s.deadline)
+	return g
+}
+
+func (s Task) IsTopPriority() bool {
+	if s.priority == 4 || s.priority == 5 {
+		return true
+	}
+	return false
+}
+
+func (s ToDoList) CountTopPrioritiesTasks() int {
+	var h int
+	for g := 0; g < len(s.tasks); g++ {
+		if s.tasks[g].IsTopPriority() {
+			h++
+		}
+	}
+
+	return h
+}
+
+func (s ToDoList) CountOverdueTasks() int {
+	var j int
+	for k := 0; k < len(s.notes); k++ {
+		if s.tasks[k].IsOverdue() {
+			j++
+		}
+	}
+	return j
+}
+
+func main() {
+	todo := ToDoList{name: "Gosha ToDo list", tasks: []Task{Task{summary: "Make Yandex Lyceum Task 9", deadline: time.Now().Add(-time.Hour), description: "Make Module 0, Task 9", priority: 5}, Task{summary: "Make Yandex Lyceum Task 10", deadline: time.Now().Add(time.Hour), description: "Make Module 0, Task 10", priority: 3}}, notes: []Note{Note{title: "ToDo list task", text: "ToDo list task in Yandex Lyceum is very interesting"}}}
+	fmt.Println(todo.TasksCount())
+	fmt.Println(todo.NotesCount())
+	fmt.Println(todo.CountTopPrioritiesTasks())
+	fmt.Print(todo.CountOverdueTasks())
+}
